@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Dice Game
+        </title>
+    </head>
+    <body>
+        Person 1 : <input type="text" value="Ebin">
+        <button class="dice" id="1">Roll the Dice</button>
+        Result : <span></span><br><br>
+
+        Person 2 : <input type="text" value="Maxon">
+        <button class="dice" id="2">Roll the Dice</button>
+        Result : <span></span><br><br>
+
+        Person 3 : <input type="text" value="Michael">
+        <button class="dice" id="3">Roll the Dice</button>
+        Result : <span></span><br><br>
+
+        Person 4 : <input type="text" value="Maran">
+        <button class="dice" id="4">Roll the Dice</button>
+        Result : <span></span><br><br>
+
+        Person 5 : <input type="text" value="Jeno">
+        <button class="dice" id="5">Roll the Dice</button>
+        Result : <span></span><br><br>
+
+        <button id = "endgame">End Game</button>
+        <div id  = "winMessage"></div>
+        <script>
+            let person,button,result,endButton,winMessage
+            person = document.querySelectorAll("input")
+            button = document.querySelectorAll(".dice")
+            result = document.querySelectorAll("span")
+            endButton = document.querySelector("#endgame")
+            winMessage = document.querySelector("#winMessage")
+
+            for  (i = 0; i < button.length; i+=1){
+                button[i].addEventListener("click",rollDice)
+            }
+            // identify Clicks
+            // for(t of button){
+            //     t.addEventListener("click",rollDice)
+            // }
+
+
+            function rollDice(e){
+                user_id = e.target.id
+                diceOptions = [1,2,3,4,5,6]
+                random = parseInt(Math.random()*diceOptions.length)
+                diceResults = diceOptions[random]
+                result[user_id-1].innerText =diceResults
+            }
+
+            endButton.addEventListener("click",showResult)
+            function showResult(){
+                max = result[0].innerText
+                
+                for(i = 0;i < button.length; i++){
+                    if(result[i].innerText>max){
+                        max =result[i].innerText
+                        
+                    }
+                }
+                
+                    winMessage.innerText = "The Winner(s) : \n"
+                    for(i = 0;i < button.length; i++){
+                        if(result[i].innerText == max){
+                            winMessage.innerText += "\t" + person[i].value+"\n"
+                        }
+                    }
+                
+            }
+        </script>
+    </body>
+</html>
