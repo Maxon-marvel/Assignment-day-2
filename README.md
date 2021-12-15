@@ -1,2 +1,2 @@
-# Assignment-day-2
+# Assignment-For-javascript course
 The Dice game using JavaScript
