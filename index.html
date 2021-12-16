@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Day one
+        </title>
+    </head>
+    <body>
+        Name : <input type="text" value="Maxon">
+        <button>Greet Me 1</button>
+        <div id = "message"></div>
+        <!-- <button>Greet me 2</button>
+        <button>Greet me 3</button> -->
+        <script>
+            inp = document.querySelector("input")
+            button = document.querySelector("button")
+            message = document.querySelector("#message")
+            function greetMessage(){
+                Date = new Date()
+                hour= Date.getHours()
+
+                if(hour < 12){
+                    return "Good Morning"
+                }
+                else if(hour >= 12 && hour <= 17){
+                    return "Good Afternoon"
+                }
+                else{
+                    return "Good Evening"
+                }
+            }
+
+            button.addEventListener("click",sayHello)
+            function sayHello(){
+                message.innerText = "Hey "+inp.value+'.'+greetMessage()
+            }
+        </script>
+    </body>
+</html>
